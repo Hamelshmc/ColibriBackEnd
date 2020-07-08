@@ -1,6 +1,6 @@
 module github.com/Hamelshmc/ColibriBackEnd
 
-go 1.14.4
+go1.12.17
 
 require (
 )
