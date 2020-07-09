@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"github.com/Hamelshmc/ColibriBackEnd/database"
-	"github.com/Hamelshmc/ColibriBackEnd/router"
+	"github.com/Hamelshmc/ColibriBackEnd/handlers"
 )
 
 func main() {
@@ -12,5 +12,5 @@ func main() {
 		log.Fatal("Sin conexión a la base datos")
 		return
 	}
-	router.ManejoRutas()
+	handlers.ManejoRutas()
 }
