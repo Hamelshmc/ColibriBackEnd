@@ -3,14 +3,14 @@ package main
 import (
 	"log"
 
-	"github.com/Hamelshmc/ColibriBackEnd/bd"
-	"github.com/Hamelshmc/ColibriBackEnd/handlers"
+	"github.com/Hamelshmc/ColibriBackEnd/database"
+	"github.com/Hamelshmc/ColibriBackEnd/router"
 )
 
 func main() {
-	if bd.ChequeoConexion() == 0 {
+	if database.ChequeoConexion() == 0 {
 		log.Fatal("Sin conexión a la base datos")
 		return
 	}
-	handlers.ManejoRutas()
+	router.ManejoRutas()
 }
