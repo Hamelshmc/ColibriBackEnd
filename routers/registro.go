@@ -26,11 +26,9 @@ func Registro(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "La contraseña debe tener al menos 6 caracteres", 400)
 		return
 	}
-
 	_, encontrado, _ := database.YaExisteUsuario(usuario.Email)
-
-	if encontrado == true {
-		http.Error(w, "Ya existe ese usuario", 400)
+	if encontrado {
+		http.Error(w, "Ya existe un usuario registrado con ese email", 400)
 		return
 	}
 
@@ -41,7 +39,7 @@ func Registro(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if status == false {
+	if !status {
 		http.Error(w, "No se registro correctamente "+err.Error(), 400)
 		return
 	}

@@ -8,9 +8,9 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 )
 
-//YaExisteUsuario , comprobar si existe el usuario en la base datos
+/*YaExisteUsuario recibe un email de parámetro y chequea si ya está en la BD */
 func YaExisteUsuario(email string) (models.Usuario, bool, string) {
-	context, cancel := context.WithTimeout(context.Background(), 15*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
 	defer cancel()
 
 	database := MongoConexion.Database("Colibri")
@@ -20,12 +20,10 @@ func YaExisteUsuario(email string) (models.Usuario, bool, string) {
 
 	var resultado models.Usuario
 
-	err := collection.FindOne(context, condicion).Decode(resultado)
+	err := collection.FindOne(ctx, condicion).Decode(&resultado)
 	ID := resultado.ID.Hex()
-
 	if err != nil {
 		return resultado, false, ID
 	}
 	return resultado, true, ID
-
 }
