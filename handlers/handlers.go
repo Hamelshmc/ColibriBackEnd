@@ -16,6 +16,7 @@ func ManejoRutas() {
 	router := mux.NewRouter() // mux captura el HTTP
 
 	router.HandleFunc("/registro", middlewares.ChequeoBaseDatos(routers.Registro)).Methods("POST")
+	router.HandleFunc("/login", middlewares.ChequeoBaseDatos(routers.Login)).Methods("POST")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
