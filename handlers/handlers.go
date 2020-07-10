@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/Hamelshmc/ColibriBackEnd/middlewares"
+	"github.com/Hamelshmc/ColibriBackEnd/routers"
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
 )
@@ -14,7 +15,7 @@ import (
 func ManejoRutas() {
 	router := mux.NewRouter() // mux captura el HTTP
 
-	router.HandleFunc("/registro", middlewares.ChequeoBaseDatos(routers.Resgistro)).Methods("POST")
+	router.HandleFunc("/registro", middlewares.ChequeoBaseDatos(routers.Registro)).Methods("POST")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
