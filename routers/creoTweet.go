@@ -9,7 +9,7 @@ import (
 	"github.com/Hamelshmc/ColibriBackEnd/models"
 )
 
-/*CreoTweet permite grabar el tweet en la base de datos */
+// CreoTweet permite guardar el tweet en la base de datos
 func CreoTweet(w http.ResponseWriter, r *http.Request) {
 
 	var mensaje models.Tweet
@@ -28,12 +28,12 @@ func CreoTweet(w http.ResponseWriter, r *http.Request) {
 
 	_, status, err := database.CrearTweet(creoTweet)
 	if err != nil {
-		http.Error(w, "Ocurrió un error al intentar insertar el registro, inténtenlo de nuevo"+err.Error(), 400)
+		http.Error(w, "Ocurrió un error"+err.Error(), 400)
 		return
 	}
 
 	if !status {
-		http.Error(w, "No se ha logrado insertar el Tweet", 400)
+		http.Error(w, "No se ha logrado guardar el Tweet", 400)
 		return
 	}
 

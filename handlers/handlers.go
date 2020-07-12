@@ -31,6 +31,7 @@ func ManejoRutas() {
 	//Eliminamos
 	router.HandleFunc("/eliminarTweet", middlewares.ChequeoBaseDatos(middlewares.ValidoJWT(routers.EliminarTweet))).Methods("DELETE")
 	router.HandleFunc("/bajarelacion", middlewares.ChequeoBaseDatos(middlewares.ValidoJWT(routers.BajaRelacion))).Methods("DELETE")
+	router.HandleFunc("/estadorelacion", middlewares.ChequeoBaseDatos(middlewares.ValidoJWT(routers.EstadoRelacion))).Methods("GET")
 
 	// Tratando con imágenes
 	router.HandleFunc("/subirAvatar", middlewares.ChequeoBaseDatos(middlewares.ValidoJWT(routers.SubirAvatar))).Methods("POST")
