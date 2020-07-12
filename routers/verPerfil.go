@@ -10,7 +10,9 @@ import (
 // VerPerfil extrae los valores de perfil
 func VerPerfil(w http.ResponseWriter, r *http.Request) {
 
+	// recogemos el parametro  que nos viene en la url
 	ID := r.URL.Query().Get("id")
+
 	if len(ID) < 1 {
 		http.Error(w, "Debe enviar el parámetro ID", http.StatusBadRequest)
 		return
