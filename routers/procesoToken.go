@@ -16,18 +16,18 @@ var Email string
 var IDUsuario string
 
 // ProcesoToken , proceso token para extraer su contenido
-func ProcesoToken(token string) (*models.Claim, bool, string, error) {
-	miClave := []byte("MastersdelDesarrollo_grupodeFacebook")
+func ProcesoToken(tk string) (*models.Claim, bool, string, error) {
+	miClave := []byte("HolaHamiltonMercadoCuellar")
 	claims := &models.Claim{}
 
-	splitToken := strings.Split(token, "Bearer")
+	splitToken := strings.Split(tk, "Bearer")
 	if len(splitToken) != 2 {
 		return claims, false, string(""), errors.New("formato de token invalido")
 	}
 
-	token = strings.TrimSpace(splitToken[1])
+	tk = strings.TrimSpace(splitToken[1])
 
-	tkn, err := jwt.ParseWithClaims(token, claims, func(token *jwt.Token) (interface{}, error) {
+	tkn, err := jwt.ParseWithClaims(tk, claims, func(token *jwt.Token) (interface{}, error) {
 		return miClave, nil
 	})
 	if err == nil {
