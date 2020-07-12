@@ -23,11 +23,11 @@ func AltaRelacion(w http.ResponseWriter, r *http.Request) {
 
 	status, err := database.CreoRelacion(relacion)
 	if err != nil {
-		http.Error(w, "Ocurrió un error al intentar insertar relación "+err.Error(), http.StatusBadRequest)
+		http.Error(w, "Ocurrió un error"+err.Error(), http.StatusBadRequest)
 		return
 	}
 	if !status {
-		http.Error(w, "No se ha logrado insertar la relación "+err.Error(), http.StatusBadRequest)
+		http.Error(w, "No se ha logrado"+err.Error(), http.StatusBadRequest)
 		return
 	}
 
