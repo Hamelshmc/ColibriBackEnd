@@ -26,6 +26,11 @@ func ManejoRutas() {
 
 	router.HandleFunc("/eliminarTweet", middlewares.ChequeoBaseDatos(middlewares.ValidoJWT(routers.EliminarTweet))).Methods("DELETE")
 
+	router.HandleFunc("/subirAvatar", middlewares.ChequeoBaseDatos(middlewares.ValidoJWT(routers.SubirAvatar))).Methods("POST")
+	router.HandleFunc("/obtenerAvatar", middlewares.ChequeoBaseDatos(routers.ObtenerAvatar)).Methods("GET")
+	router.HandleFunc("/subirBanner", middlewares.ChequeoBaseDatos(middlewares.ValidoJWT(routers.SubirBanner))).Methods("POST")
+	router.HandleFunc("/obtenerBanner", middlewares.ChequeoBaseDatos(routers.ObtenerBanner)).Methods("GET")
+
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
 		PORT = "8080"
