@@ -24,6 +24,8 @@ func ManejoRutas() {
 
 	router.HandleFunc("/modificarperfil", middlewares.ChequeoBaseDatos(middlewares.ValidoJWT(routers.ModificarPerfil))).Methods("PUT")
 
+	router.HandleFunc("/eliminarTweet", middlewares.ChequeoBaseDatos(middlewares.ValidoJWT(routers.EliminarTweet))).Methods("DELETE")
+
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
 		PORT = "8080"
