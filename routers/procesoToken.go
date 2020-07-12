@@ -12,7 +12,7 @@ import (
 // Email valor de Email usado en todas las rutas
 var Email string
 
-// IDusuario es el devuelto del modelo, que usará en todas las rutas
+// IDUsuario es el devuelto del modelo, que usará en todas las rutas
 var IDUsuario string
 
 // ProcesoToken , proceso token para extraer su contenido
