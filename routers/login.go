@@ -10,6 +10,7 @@ import (
 	"github.com/Hamelshmc/ColibriBackEnd/models"
 )
 
+// Login , loguearse en la app  y devuelve un token
 func Login(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Add("content-type", "application/json")
