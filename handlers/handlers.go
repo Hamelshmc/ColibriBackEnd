@@ -24,6 +24,7 @@ func ManejoRutas() {
 	// obtenemos
 	router.HandleFunc("/verperfil", middlewares.ChequeoBaseDatos(middlewares.ValidoJWT(routers.VerPerfil))).Methods("GET")
 	router.HandleFunc("/leotweets", middlewares.ChequeoBaseDatos(middlewares.ValidoJWT(routers.LeoTweets))).Methods("GET")
+	router.HandleFunc("/listaUsuarios", middlewares.ChequeoBaseDatos(middlewares.ValidoJWT(routers.ListarUsuarios))).Methods("GET")
 
 	// Actualizamos
 	router.HandleFunc("/modificarperfil", middlewares.ChequeoBaseDatos(middlewares.ValidoJWT(routers.ModificarPerfil))).Methods("PUT")
