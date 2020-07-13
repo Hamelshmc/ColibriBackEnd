@@ -8,6 +8,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
+// RegistroUsuario ..
 func RegistroUsuario(usuario models.Usuario) (string, bool, error) {
 
 	context, cancel := context.WithTimeout(context.Background(), 15*time.Second)

@@ -8,6 +8,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
+// MongoConexion variable global  que es una función
 var MongoConexion = ConectarBaseDatos()
 var clienteOptions = options.Client().ApplyURI("mongodb+srv://admin:1234@colibri.dvvo4.mongodb.net/Colibri?retryWrites=true&w=majority")
 

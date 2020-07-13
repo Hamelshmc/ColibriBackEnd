@@ -10,7 +10,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
-// BuscoPerfill buscar un perfil en la base datos
+// BuscoPerfil buscar un perfil en la base datos
 func BuscoPerfil(ID string) (models.Usuario, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
